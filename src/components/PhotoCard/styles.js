@@ -12,7 +12,7 @@ export const ImgWrapper = styled.div`
   overflow: hidden;
   padding: 56.25% 0 0 0;
   position: relative;
-  width: 100%; 
+  width: 100%;
 `
 
 export const Img = styled.img`
