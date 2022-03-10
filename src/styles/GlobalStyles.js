@@ -9,7 +9,7 @@ font-family:
 }
 
 *, *::before, *::after {
-        box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 ul, li, h1, h2, h3, p, button {
