@@ -16,7 +16,7 @@ app.use(cors())
 // auth middleware
 const auth = jwt({
   secret: process.env.JWT_SECRET,
-  credentialsRequired: false
+  credentialsRequired: false,
 })
 
 require('./adapter')
@@ -29,7 +29,7 @@ const server = new ApolloServer({
   context: ({ req }) => {
     const { id, email } = req.user || {}
     return { id, email }
-  }
+  },
 })
 
 app.use(auth)
@@ -44,7 +44,7 @@ const errorHandler = (err, req, res, next) => {
 app.use(errorHandler)
 server.applyMiddleware({ app, path: '/graphql' })
 
-app.get('/categories', function (req, res) {
+app.get('/categories', function(req, res) {
   res.send(categories)
 })
 
