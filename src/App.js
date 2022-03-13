@@ -11,6 +11,6 @@ export const App = () => (
       <Logo />
     </div>
     <ListOfCategories />
-    <ListOfPhotoCards />
+    <ListOfPhotoCards categoryId={1} />
   </>
 )
