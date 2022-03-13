@@ -1,3 +1,4 @@
+import { Link } from '@reach/router'
 import React from 'react'
 import { PhotoCard } from '../components/PhotoCard'
 import { useGetPhotoWithQuery } from '../hooks/useGetPhotoWithQuery'
@@ -10,7 +11,7 @@ export const PhotoCardWithQuery = ({ id }) => {
 
   return (
     <>
-      <a href='/'>BACK</a>
+      <Link to='/'>BACK</Link>
       <PhotoCard {...data.photo} />
     </>
   )

@@ -1,6 +1,7 @@
+import { Link } from '@reach/router'
 import styled from 'styled-components'
 
-export const Anchor = styled.a`
+export const Anchor = styled(Link)`
   display: flex;
   flex-direction: column;
   text-align: center;
