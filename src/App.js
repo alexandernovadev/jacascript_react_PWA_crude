@@ -4,6 +4,7 @@ import { Logo } from './components/Logo'
 import { GlobalStyle } from './styles/GlobalStyles'
 import { Home } from './Pages/Home'
 import { Detail } from './Pages/Detail'
+import { NavBar } from './components/NavBar'
 
 export const App = () => {
   return (
@@ -17,6 +18,7 @@ export const App = () => {
         <Home path='/pet/:id' />
         <Detail path='/detail/:detailID' />
       </Router>
+      <NavBar />
     </>
   )
 }
