@@ -4,7 +4,12 @@ import { Logo } from './components/Logo'
 import { GlobalStyle } from './styles/GlobalStyles'
 import { Home } from './Pages/Home'
 import { Detail } from './Pages/Detail'
+import { Favs } from './Pages/Favs'
+import { User } from './Pages/User'
+import { NotRegisterUser } from './Pages/NotRegisterUser'
 import { NavBar } from './components/NavBar'
+
+const UserLogged = ({ children }) => children({ isAuth: false })
 
 export const App = () => {
   return (
@@ -14,10 +19,27 @@ export const App = () => {
         <Logo />
       </div>
       <Router>
-        <Home path='/' />
-        <Home path='/pet/:id' />
-        <Detail path='/detail/:detailID' />
+        <Home path="/" />
+        <Home path="/pet/:id" />
+        <Detail path="/detail/:detailID" />
       </Router>
+
+      <UserLogged>
+        {({ isAuth }) =>
+          isAuth ? (
+            <Router>
+              <User path="/user" />
+              <Favs path="/favs" />
+            </Router>
+          ) : (
+            <Router>
+              <NotRegisterUser path="/favs" />
+              <NotRegisterUser path="/user" />
+            </Router>
+          )
+        }
+      </UserLogged>
+
       <NavBar />
     </>
   )
