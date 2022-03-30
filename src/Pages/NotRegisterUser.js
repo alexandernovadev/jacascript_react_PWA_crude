@@ -1,7 +1,16 @@
 import React from 'react'
+import Context  from '../Context'
 
 export const NotRegisterUser = () => {
   return (
-    <div>NotRegisterUser</div>
+    <Context.Consumer>
+      {
+        ({isAuth,activateAuth})=>(
+          <button onClick={activateAuth}>
+            {String(isAuth)}-{" "}
+            Iniciar Sesuib</button>
+        )
+      }
+    </Context.Consumer>
   )
 }
