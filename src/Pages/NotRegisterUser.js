@@ -1,20 +1,24 @@
 import React from 'react'
 import { UserForm } from '../components/UserForm'
-import Context  from '../Context'
+import Context from '../Context'
 
 export const NotRegisterUser = () => {
-  const onSubm = (e)=> {
-    console.log(e);
-  }
+
   return (
     <Context.Consumer>
-      {
-        ({isAuth,activateAuth})=>(
+      {({ isAuth, activateAuth ,registerUser}) => {
+
+        const onSubmit = (token) => {
+          token && activateAuth(token)
+        }
+
+        return (
           <>
-            <UserForm onSubmit={activateAuth}/>
+            <UserForm onSubmit={ onSubmit} type="LOGIN" />
+            <UserForm onSubmit={ onSubmit } type="REGISTER" />
           </>
         )
-      }
+      }}
     </Context.Consumer>
   )
 }

@@ -1,32 +1,65 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useForm } from '../../hooks/useForm'
+import { useRegisterUser } from '../../hooks/useRegisterUser'
+import { userLoginUser } from '../../hooks/userLoginUser'
+import { Form, Title, Input, Button } from './styles'
 
-export const UserForm = ({ onSubmit }) => {
+export const UserForm = ({ onSubmit, type }) => {
+  const [registerMutation, { data, loading, error }] = useRegisterUser()
+  const [LoginUser, info] = userLoginUser()
+  const [errorMsg, seterrorMsg] = useState('')
+
   const [formValues, handleInputChange, reset] = useForm({
     email: '',
     password: '',
   })
+
+  const handleSubmit = e => {
+    e.preventDefault()
+    seterrorMsg('')
+
+    const input = { email, password }
+    const variables = { input }
+
+    console.log(info);
+    // Todo Se puede optimizar
+
+    if (type != 'LOGIN') {
+      registerMutation({ variables })
+        .then(x => onSubmit(x.data.signup))
+        .catch(err => seterrorMsg(String(err)))
+    } else {
+      LoginUser({ variables })
+      .then(x => onSubmit(x.data.login))
+      .catch(err => seterrorMsg(String(err)))
+    }
+  
+  }
+
   const { email, password } = formValues
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <input
+      <Form onSubmit={handleSubmit}>
+        <Title>{type == 'LOGIN' ? 'Inicio de Sesión' : 'Registrate !'} </Title>
+        <span style={{ color: 'red' }}>{errorMsg}</span>
+        <Input
           placeholder="Email"
           name="email"
           value={email}
           onChange={handleInputChange}
         />
-        <input
+        <Input
           type="password"
           placeholder="Password"
           name="password"
           value={password}
           onChange={handleInputChange}
         />
-        <button>Iniciar Sesión</button>
-      </form>
-      <button onClick={reset}>Borrar todo</button>
+        <Button disabled={loading}>
+          {type == 'LOGIN' ? 'Entra' : 'Registrarme'}{' '}
+        </Button>
+      </Form>
     </>
   )
 }
