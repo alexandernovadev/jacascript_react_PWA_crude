@@ -34,6 +34,7 @@ const typeDefs = gql`
   type Query {
     favs: [Photo]
     categories: [Category]
+    users: [User]
     photos(categoryId: ID): [Photo]
     photo(id: ID!): Photo
   }
@@ -179,6 +180,9 @@ const resolvers = {
     },
     categories () {
       return categoriesModel.list()
+    },   
+    users () {
+      return  userModel.list()
     },
     photo (_, { id }, context) {
       const favs = tryGetFavsFromUserLogged(context)

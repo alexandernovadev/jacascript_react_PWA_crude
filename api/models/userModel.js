@@ -3,6 +3,9 @@ const crypto = require('crypto')
 const uuidv1 = require('uuid/v1')
 const bcrypt = require('bcrypt')
 
+function list () {
+  return db.get('users').value()
+}
 
 function addFav ({ id, photoId }) {
   db.get('users').find({ id }).update('favs', favs => [...favs, photoId]).write()
@@ -21,6 +24,7 @@ function hasFav ({ id, photoId }) {
 async function create ({ email, password }) {
   const avatarHash = crypto.createHash('md5').update(email).digest("hex")
   const avatar = `https://gravatar.com/avatar/${avatarHash}`
+
 
   // Create a user
   const user = {
@@ -45,4 +49,4 @@ function find ({ email }) {
   .value()
 }
 
-module.exports = { create, addFav, hasFav, removeFav, find }
+module.exports = { create, addFav, hasFav, removeFav, find ,list}
