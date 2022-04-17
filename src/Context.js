@@ -11,8 +11,8 @@ const Provider = ({ children }) => {
     isAuth,
     activateAuth: (token) => {
       setIsAuth(true)
-      window.sessionStorage.setItem('token',token)
-    },
+      window.sessionStorage.setItem('token', token)
+    }
   }
 
   return <Context.Provider value={value}>{children}</Context.Provider>
@@ -20,5 +20,5 @@ const Provider = ({ children }) => {
 
 export default {
   Provider,
-  Consumer: Context.Consumer,
+  Consumer: Context.Consumer
 }

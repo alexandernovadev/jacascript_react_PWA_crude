@@ -1,12 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { App } from './App'
-import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client'
 import Context from './Context'
+import { setContext } from '@apollo/client/link/context'
+
+const authLink = setContext((_, { headers }) => {
+  const token = window.sessionStorage.getItem('token')
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : ''
+    }
+  }
+})
+const httpLink = createHttpLink({
+  uri: 'https://petgram-server-taupe.vercel.app/graphql'
+})
 
 const client = new ApolloClient({
-  uri: 'https://petgram-server-taupe.vercel.app/graphql',
-  cache: new InMemoryCache(),
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache()
 })
 
 ReactDOM.render(

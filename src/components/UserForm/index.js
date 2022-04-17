@@ -11,7 +11,7 @@ export const UserForm = ({ onSubmit, type }) => {
 
   const [formValues, handleInputChange, reset] = useForm({
     email: '',
-    password: '',
+    password: ''
   })
 
   const handleSubmit = e => {
@@ -21,7 +21,7 @@ export const UserForm = ({ onSubmit, type }) => {
     const input = { email, password }
     const variables = { input }
 
-    console.log(info);
+    console.log(info)
     // Todo Se puede optimizar
 
     if (type != 'LOGIN') {
@@ -30,10 +30,9 @@ export const UserForm = ({ onSubmit, type }) => {
         .catch(err => seterrorMsg(String(err)))
     } else {
       LoginUser({ variables })
-      .then(x => onSubmit(x.data.login))
-      .catch(err => seterrorMsg(String(err)))
+        .then(x => onSubmit(x.data.login))
+        .catch(err => seterrorMsg(String(err)))
     }
-  
   }
 
   const { email, password } = formValues
@@ -44,15 +43,15 @@ export const UserForm = ({ onSubmit, type }) => {
         <Title>{type == 'LOGIN' ? 'Inicio de Sesión' : 'Registrate !'} </Title>
         <span style={{ color: 'red' }}>{errorMsg}</span>
         <Input
-          placeholder="Email"
-          name="email"
+          placeholder='Email'
+          name='email'
           value={email}
           onChange={handleInputChange}
         />
         <Input
-          type="password"
-          placeholder="Password"
-          name="password"
+          type='password'
+          placeholder='Password'
+          name='password'
           value={password}
           onChange={handleInputChange}
         />

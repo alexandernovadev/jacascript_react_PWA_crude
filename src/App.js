@@ -12,7 +12,6 @@ import { NavBar } from './components/NavBar'
 // const UserLogged = ({ children }) => children({ isAuth: false })
 import Context from './Context'
 
-
 export const App = () => {
   return (
     <>
@@ -21,25 +20,26 @@ export const App = () => {
         <Logo />
       </div>
       <Router>
-        <Home path="/" />
-        <Home path="/pet/:id" />
-        <Detail path="/detail/:detailID" />
+        <Home path='/' />
+        <Home path='/pet/:id' />
+        <Detail path='/detail/:detailID' />
       </Router>
 
       <Context.Consumer>
         {({ isAuth }) =>
-          isAuth ? (
-            <Router>
-              <User path="/user" />
-              <Favs path="/favs" />
-            </Router>
-          ) : (
-            <Router>
-              <NotRegisterUser path="/favs" />
-              <NotRegisterUser path="/user" />
-            </Router>
-          )
-        }
+          isAuth
+            ? (
+              <Router>
+                <User path='/user' />
+                <Favs path='/favs' />
+              </Router>
+              )
+            : (
+              <Router>
+                <NotRegisterUser path='/favs' />
+                <NotRegisterUser path='/user' />
+              </Router>
+              )}
       </Context.Consumer>
 
       <NavBar />

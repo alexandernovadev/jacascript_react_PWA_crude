@@ -15,7 +15,7 @@ export const useGetPhotos = categoryId => {
   `
 
   const { loading, error, data } = useQuery(GET_PHOTOS, {
-    variables: { categoryId },
+    variables: { categoryId }
   })
 
   return { loading, error, data }

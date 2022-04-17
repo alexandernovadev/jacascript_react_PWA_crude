@@ -5,6 +5,7 @@ export const List = styled.ul`
   display: flex;
   overflow: scroll;
   width: 100%;
+  transition: 7s;
   ${props =>
     props.fixed &&
     css`
@@ -19,7 +20,7 @@ export const List = styled.ul`
         position: fixed;
         right: 0;
         top: 4px;
-        /* transform: scale(0.5); */
+        transform: scale(0.6);
         z-index: 1;
       }
     `}

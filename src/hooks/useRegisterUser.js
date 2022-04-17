@@ -6,7 +6,7 @@ export const useRegisterUser = () => {
       signup(input: $input)
     }
   `
-  const [registerMutation,info] = useMutation(REGISTER_USER)
+  const [registerMutation, info] = useMutation(REGISTER_USER)
 
-  return [registerMutation,info]
+  return [registerMutation, info]
 }
