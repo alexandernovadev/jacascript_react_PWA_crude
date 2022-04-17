@@ -23,7 +23,7 @@ export const Button = styled.button`
   text-align: center;
 
   &[disabled]{
-    filter:opacity(.4);
+    filter:opacity(.7);
     cursor:progress;
   }
 `
@@ -31,5 +31,5 @@ export const Button = styled.button`
 export const Title = styled.h2`
   font-size: 16px;
   font-weight: 500;
-  padding: 8px 0;
+  padding: 16px 0;
 `
