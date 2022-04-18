@@ -15,7 +15,7 @@ const authLink = setContext((_, { headers }) => {
   }
 })
 const httpLink = createHttpLink({
-  uri: 'https://petgram-server-taupe.vercel.app/graphql'
+  uri: 'http://localhost:3500/graphql'
 })
 
 const client = new ApolloClient({

@@ -11,7 +11,7 @@ function useCategoriesData () {
   useEffect(function () {
     setLoading(true)
     window
-      .fetch('https://petgram-server-taupe.vercel.app/categories')
+      .fetch('http://localhost:3500/categories')
       .then(res => res.json())
       .then(response => {
         setCategories(response)

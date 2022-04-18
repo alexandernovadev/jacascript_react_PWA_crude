@@ -21,6 +21,27 @@
       ],
       "avatar": "https://gravatar.com/avatar/3bccd59be0a57b39bdd9b2760702795e",
       "email": "dani@gmail.com"
+    },
+    {
+      "id": "1c07c030-be94-11ec-b01a-85049d40c0b6",
+      "password": "$2b$10$beDVzkGHo.cB8fa6FujyEO9bsoy6vfaY.cnep6d6xPMNPsjdoD.AK",
+      "favs": [],
+      "avatar": "https://gravatar.com/avatar/3d1f08e37fd3494fba62c37ab0f927dd",
+      "email": "vamos@vamos.com"
+    },
+    {
+      "id": "44deeba0-be94-11ec-b595-ff282eb169b3",
+      "password": "$2b$10$Tkk.FU7nFRdiah/epu2VW.w212vH4liCF08xgbmiZNdqMKzHgpa5O",
+      "favs": [],
+      "avatar": "https://gravatar.com/avatar/3d1f08e37fd3494fba62c37ab0f927dd",
+      "email": "vamos@vamos.com"
+    },
+    {
+      "id": "67021630-be94-11ec-b595-ff282eb169b3",
+      "password": "$2b$10$sE9JlWEvkLc0B0LbBboi9eUb0dT72uVo6UTRhbdkfZI0JpkPgoZX6",
+      "favs": [],
+      "avatar": "https://gravatar.com/avatar/3d1f08e37fd3494fba62c37ab0f927dd",
+      "email": "vamos@vamos.com"
     }
   ],
   "categories": [

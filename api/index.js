@@ -49,7 +49,25 @@ app.get('/categories', function(req, res) {
   res.send(categories)
 })
 app.get('/users', function(req, res) {
+
   res.send(users)
+})
+
+
+const userModel = require('./models/userModel')
+app.get('/haber', async function(req, res) {
+
+//   const newUser = await userModel.create({
+//     email:'vamos@vamos.com',
+//     password:'password'
+//   })
+
+// console.log(newUser);
+  const usersDb = await userModel.list()
+
+  res.send(usersDb)
+
+
 })
 
 if (!process.env.NOW_REGION) {

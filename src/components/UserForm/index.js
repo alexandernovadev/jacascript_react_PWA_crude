@@ -30,21 +30,20 @@ export const UserForm = ({ onSubmit, type }) => {
       registerMutation({ variables })
         .then(x => onSubmit(x.data.signup))
         .catch(err => seterrorMsg(String(err)))
-        .finally(()=> setLoad(false))
+        .finally(() => setLoad(false))
     } else {
       LoginUser({ variables })
         .then(x => onSubmit(x.data.login))
         .catch(err => seterrorMsg(String(err)))
-        .finally(()=> setLoad(false)) 
+        .finally(() => setLoad(false))
     }
-
   }
 
   const { email, password } = formValues
 
   return (
     <>
-      <Form onSubmit={handleSubmit} style={{padding:'16px'}}>
+      <Form onSubmit={handleSubmit} style={{ padding: '16px' }}>
         <Title>{type == 'LOGIN' ? 'Inicio de Sesión' : 'Registrate !'} </Title>
         <span style={{ color: 'red' }}>{errorMsg}</span>
         <Input

@@ -8,8 +8,7 @@ export const useRegisterUser = () => {
   `
   const [registerMutation, info] = useMutation(REGISTER_USER)
 
-
-  console.log("nose",registerMutation);
-  console.log("se supene que ese22:",info);
+  console.log('nose', registerMutation)
+  console.log('se supene que ese22:', info)
   return [registerMutation, info]
 }
